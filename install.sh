@@ -11,16 +11,16 @@ echo "Shell found: $user_shell"
 shell=""
 
 if [[ "$user_shell" == "bash" ]] && [[ -f "$HOME/.bashrc" ]]; then
-  shell="~/.bashrc"
+  shell="$HOME/.bashrc"
 elif [[ "$user_shell" == "zsh" ]] && [[ -f "$HOME/.zshrc" ]]; then
-  shell="~/.zshrc"
+  shell="$HOME/.zshrc"
 else
   echo "No suitable shell configuration file found."
   exit 1
 fi
 
 if [[ -n "$shell" ]]; then
-  echo "source ~/.dotfile/.jarvis" >>"$shell"
+  echo "source $HOME/.dotfile/.jarvis" >> "$shell"
   echo "WARNING: dotfile not populated, restart terminal or run below command to fix it!"
   echo "  . $shell"
 else
@@ -29,6 +29,6 @@ else
 fi
 
 echo "Applying compatibility for Alacritty"
-ln -sf ~/.dotfile/alacritty ~/.config/alacritty
+ln -sf "$HOME/.dotfile/alacritty" "$HOME/.config/alacritty"
 
 echo "Install complete!"
