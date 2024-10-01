@@ -1,0 +1,32 @@
+export XDG_CONFIG_HOME="$HOME/.dotfile";
+
+jarvis() {
+    if [[ "$1" == "update" ]]; then
+        git pull -r;
+    elif [[ "$1" == "editor" ]]; then
+        if [[ "$2" == "kill" ]]; then
+            tmux kill-session -t "$(pwd)";
+        else
+            dir=$(pwd)  # Set the current directory
+            tmux new -s "$dir" \; \
+                 split-pane \; \
+                 split-pane -h \; \
+                 resize-pane -t 0 -y 60 \; \
+                 select-pane -t 0 \; \
+                 send-keys "nvim $dir" C-m \;
+        fi
+    else
+        echo "Command not found";
+    fi
+}
+
+fr() {
+    clear
+    flutter run "$@"
+}
+
+ft() {
+    clear
+    flutter test "$@"
+}
+
