@@ -1,6 +1,6 @@
 echo "Cloning repository..."
 
-git clone "git@github.com:herisetiawan00/dotfile.git" ~/.dotfile
+git clone "https://github.com/herisetiawan00/dotfile.git" ~/.dotfile
 
 echo "Detecting shell..."
 
