@@ -17,6 +17,6 @@ elif [[ "$user_shell" == "zsh" ]] && [[ -f "$HOME/.zshrc" ]]; then
 fi
 
 echo "source ~/.dotfile/.jarvis" >> "$shell"
-. "$shell"
+source "$shell"
 
 echo "Install complete!"
