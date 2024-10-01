@@ -1,6 +1,6 @@
 echo "Cloning repository..."
 
-git clone "https://github.com/herisetiawan00/dotfile" ~/.dotfile
+git clone "git@github.com:herisetiawan00/dotfile.git" ~/.dotfile
 
 echo "Detecting shell..."
 
@@ -18,7 +18,7 @@ fi
 
 # Check if the shell variable is set before trying to append
 if [[ -n "$shell" ]]; then
-  echo "source ~/.dotfile/.jarvis" >> "$shell"
+  echo "source ~/.dotfile/.jarvis" >>"$shell"
   echo "WARNING: dotfile not populated, restart terminal or run below command to fix it!"
   echo "  . $shell"
 else
