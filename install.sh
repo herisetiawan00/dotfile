@@ -19,7 +19,7 @@ fi
 # Check if the shell variable is set before trying to append
 if [[ -n "$shell" ]]; then
   echo "source ~/.dotfile/.jarvis" >> "$shell"
-  source "$shell"
+  . "$shell"
 else
   echo "No suitable shell configuration file found."
 fi
