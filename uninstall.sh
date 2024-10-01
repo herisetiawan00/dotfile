@@ -32,10 +32,7 @@ echo "Removing repository..."
 
 rm -rf "$HOME/.dotfile"
 
-if [[ -n "$shell" ]]; then
-    source "$shell"
-else
-    echo "No shell configuration file found to source."
-fi
+echo "WARNING: dotfile not populated, restart terminal or run below command to fix it!"
+echo "  . $shell"
 
 echo "Uninstall complete!"
