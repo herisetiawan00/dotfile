@@ -14,7 +14,11 @@ fi
 
 echo "Removing from shell"
 
-sed -i "/source ~\/.dotfile\/.jarvis/d" "$shell"
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    sed -i "" "/source ~\/.dotfile\/.jarvis/d" "$shell"
+elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    sed -i "/source ~\/.dotfile\/.jarvis/d" "$shell"
+fi
 
 echo "Removing repository..."
 
