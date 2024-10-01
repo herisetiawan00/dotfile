@@ -149,5 +149,6 @@ require("lspconfig").ts_ls.setup({})
 require("lspconfig").dartls.setup({})
 require("lspconfig").lua_ls.setup({})
 require("lspconfig").kotlin_language_server.setup({})
+require("lspconfig").bashls.setup({})
 
 vim.cmd.colorscheme("catppuccin")
