@@ -1,6 +1,6 @@
 echo "Cloning repository..."
 
-git clone "https://github.com/herisetiawan00/dotfile.git" ~/.dotfile
+git clone "https://github.com/herisetiawan00/dotfile.git" ~/.dotfile || exit 1
 
 echo "Detecting shell..."
 
@@ -11,18 +11,24 @@ echo "Shell found: $user_shell"
 shell=""
 
 if [[ "$user_shell" == "bash" ]] && [[ -f "$HOME/.bashrc" ]]; then
-  shell="$HOME/.bashrc"
+  shell="~/.bashrc"
 elif [[ "$user_shell" == "zsh" ]] && [[ -f "$HOME/.zshrc" ]]; then
-  shell="$HOME/.zshrc"
+  shell="~/.zshrc"
+else
+  echo "No suitable shell configuration file found."
+  exit 1
 fi
 
-# Check if the shell variable is set before trying to append
 if [[ -n "$shell" ]]; then
   echo "source ~/.dotfile/.jarvis" >>"$shell"
   echo "WARNING: dotfile not populated, restart terminal or run below command to fix it!"
   echo "  . $shell"
 else
   echo "No suitable shell configuration file found."
+  exit 1
 fi
+
+echo "Applying compatibility for Alacritty"
+ln -sf "~/.dotfile/alacritty" "~/.config/alacritty"
 
 echo "Install complete!"
