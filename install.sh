@@ -19,11 +19,8 @@ fi
 # Check if the shell variable is set before trying to append
 if [[ -n "$shell" ]]; then
   echo "source ~/.dotfile/.jarvis" >> "$shell"
-  if [[ "$user_shell" == "bash" ]]; then
-    source "$HOME/.bashrc"
-  elif [[ "$user_shell" == "zsh" ]]; then
-    source "$HOME/.zshrc"
-  fi
+  echo "WARNING: dotfile not populated, restart terminal or run below command to fix it!"
+  echo "  . $shell"
 else
   echo "No suitable shell configuration file found."
 fi
