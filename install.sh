@@ -29,6 +29,6 @@ else
 fi
 
 echo "Applying compatibility for Alacritty"
-ln -sf "~/.dotfile/alacritty" "~/.config/alacritty"
+ln -sf ~/.dotfile/alacritty ~/.config/alacritty
 
 echo "Install complete!"
