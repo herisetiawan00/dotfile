@@ -8,7 +8,7 @@ shell=""
 
 if [[ "$user_shell" == "bash" ]] && [[ -f "$HOME/.bashrc" ]]; then
   shell="$HOME/.bashrc"
-elif [[ "$user_shell" == "zsh" ]] && [[ -f "$HOME/.zshrc"]]; then
+elif [[ "$user_shell" == "zsh" ]] && [[ -f "$HOME/.zshrc" ]]; then
   shell="$HOME/.zshrc"
 fi
 
