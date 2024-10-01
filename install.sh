@@ -10,13 +10,18 @@ echo "Shell found: $user_shell"
 
 shell=""
 
-if [["$user_shell" == "bash" ]] && [[ -f "$HOME/.bashrc" ]]; then
+if [[ "$user_shell" == "bash" ]] && [[ -f "$HOME/.bashrc" ]]; then
   shell="$HOME/.bashrc"
 elif [[ "$user_shell" == "zsh" ]] && [[ -f "$HOME/.zshrc" ]]; then
   shell="$HOME/.zshrc"
 fi
 
-echo "source ~/.dotfile/.jarvis" >> "$shell"
-source "$shell"
+# Check if the shell variable is set before trying to append
+if [[ -n "$shell" ]]; then
+  echo "source ~/.dotfile/.jarvis" >> "$shell"
+  source "$shell"
+else
+  echo "No suitable shell configuration file found."
+fi
 
 echo "Install complete!"
