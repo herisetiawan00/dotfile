@@ -2,7 +2,7 @@ export XDG_CONFIG_HOME="$HOME/.dotfile";
 
 jarvis() {
     if [[ "$1" == "update" ]]; then
-        git pull -r;
+        git -C "$HOME/.dotfile" pull;
     elif [[ "$1" == "editor" ]]; then
         if [[ "$2" == "kill" ]]; then
             tmux kill-session -t "$(pwd)";
