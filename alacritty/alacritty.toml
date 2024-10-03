@@ -1,5 +1,5 @@
 [font]
-size = 8.0
+size = 6.0
 
 [font.bold]
 family = "JetBrainsMono Nerd Font"
@@ -16,7 +16,3 @@ style = "Italic"
 [font.normal]
 family = "JetBrainsMono Nerd Font"
 style = "Regular"
-
-[window]
-blur = true
-opacity = 0.9

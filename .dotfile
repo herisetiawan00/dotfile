@@ -1,0 +1,6 @@
+# Set dotfile home
+export DOTDIR="$HOME/.dotfile"
+export XDG_CONFIG_HOME="$DOTDIR"
+
+# Include zshrc
+source $DOTDIR/zshrc/.zshrc

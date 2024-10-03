@@ -1,3 +1,6 @@
 [submodule "tmux/plugins/catppuccin"]
 	path = tmux/plugins/catppuccin
 	url = https://github.com/catppuccin/tmux.git
+[submodule "zshrc/.oh-my-zsh"]
+	path = zshrc/.oh-my-zsh
+	url = https://github.com/ohmyzsh/ohmyzsh.git
