@@ -1,23 +1,11 @@
 ## Introduction
 
-## Installation
-### Bash
+## Install
 ```bash
-wget -O - https://raw.githubusercontent.com/herisetiawan00/dotfile/refs/heads/main/install.sh | bash
-```
-
-### Zsh
-```bash
-wget -O - https://raw.githubusercontent.com/herisetiawan00/dotfile/refs/heads/main/install.sh | zsh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/herisetiawan00/dotfile/refs/heads/main/install.sh)"
 ```
 
 ## Uninstall
-### Bash
 ```bash
-wget -O - https://raw.githubusercontent.com/herisetiawan00/dotfile/refs/heads/main/uninstall.sh | bash
-```
-
-### Zsh
-```bash
-wget -O - https://raw.githubusercontent.com/herisetiawan00/dotfile/refs/heads/main/uninstall.sh | zsh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/herisetiawan00/dotfile/refs/heads/main/uninstall.sh)"
 ```
