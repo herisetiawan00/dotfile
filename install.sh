@@ -23,7 +23,7 @@ backup_existing() {
 
     if [ "$BACKUP" = "Y" ]; then
       echo "Backing up your existing $BASENAME..."
-      mv -r "$1" "$1.bak"
+      mv "$1" "$1.bak"
     else
       echo "Removing existing $BASENAME..."
       rm -r "$1"
