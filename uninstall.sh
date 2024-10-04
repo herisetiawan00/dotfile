@@ -1,38 +1,42 @@
-#!/bin/bash
+TARGET_DIR="$HOME/.dotfile"
+CONFIG_DIR="$HOME/.config"
 
-echo "Detecting shell..."
+remove() {
+  rm -r "$1" || echo "Failed to remove $1, skipping..."
+}
 
-user_shell=$(basename "$SHELL")
+restore_existing() {
+  if [ -d "$1.bak" ] || [ -f "$1.bak" ]; then
+    mv -r "$1.bak" "$1" || echo "Failed to restore $1, skipping..."
+  fi
+}
 
-echo "Shell found: $user_shell"
+read -p "Dotfile will be removed and replaced by old configuration (if exist), are you sure? [Y/n]" CONFIRMATION
 
-shell=""
-
-if [[ "$user_shell" == "bash" ]] && [[ -f "$HOME/.bashrc" ]]; then
-  shell="$HOME/.bashrc"
-elif [[ "$user_shell" == "zsh" ]] && [[ -f "$HOME/.zshrc" ]]; then
-  shell="$HOME/.zshrc"
-else
-  echo "Unsupported shell or configuration file not found."
-  exit 1
+if [ -z "$CONFIRMATION" ]; then
+  CONFIRMATION="Y"
 fi
 
-echo "Removing from shell"
+CONFIRMATION=$(echo "$CONFIRMATION" | tr '[:lower:]' '[:upper:]')
 
-if [[ "$OSTYPE" == "darwin"* ]]; then
-    sed -i "" "/source ~\/.dotfile\/.jarvis/d" "$shell"
-elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    sed -i "/source ~\/.dotfile\/.jarvis/d" "$shell"
+if [ "$CONFIRMATION" = "Y" ]; then
+  echo "Removing compatibility..."
+  remove "$CONFIG_DIR/alacritty"
+
+  echo "Removing configuration from .zshrc..."
+  remove "$HOME/.zshrc"
+
+  echo "Removing repository..."
+  remove "$TARGET_DIR"
+
+  echo "Restoring old configuration..."
+  restore_existing "$TARGET_DIR"
+  restore_existing "$HOME/.zshrc"
+
+  echo "Refreshing source config..."
+  . "$HOME/.zshrc" || echo "Failed to refresh source config, please do it manually using: . $HOME/.zshrc"
+
+  echo "Dotfile removed"
 else
-    echo "Unsupported OS: $OSTYPE"
-    exit 1
+  echo "Dotfile remove aborted"
 fi
-
-echo "Removing repository..."
-
-rm -rf "$HOME/.dotfile"
-
-echo "WARNING: dotfile not populated, restart terminal or run below command to fix it!"
-echo "  . $shell"
-
-echo "Uninstall complete!"
