@@ -85,4 +85,7 @@ populate "source $TARGET_DIR/.dotfile" "$HOME/.zshrc"
 
 compatibility
 
+echo "Refreshing source config..."
+. "$HOME/.zshrc" || echo "Failed to refresh source config, please do it manually using: . $HOME/.zshrc"
+
 echo "Install complete"
