@@ -3,6 +3,7 @@ export DOTDIR="$HOME/.dotfile"
 export XDG_CONFIG_HOME="$DOTDIR"
 export ASDF_CONFIG_FILE="$XDG_CONFIG_HOME/asdf/asdfrc"
 export ASDF_DIR="$XDG_CONFIG_HOME/asdf"
+export ASDF_DATA_DIR="$ASDF_DIR"
 
 # Include zshrc
 source $DOTDIR/zshrc/.zshrc
