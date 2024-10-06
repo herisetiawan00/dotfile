@@ -1,6 +1,18 @@
 # Set dotfile home
 export DOTDIR="$HOME/.dotfile"
 export XDG_CONFIG_HOME="$DOTDIR"
+export ASDF_CONFIG_FILE="$XDG_CONFIG_HOME/asdf/asdfrc"
+export ASDF_DIR="$XDG_CONFIG_HOME/asdf"
 
 # Include zshrc
 source $DOTDIR/zshrc/.zshrc
+
+if [ -f /etc/arch-release ]; then
+  source $DOTDIR/utils/arch.sh
+fi
+
+# Include asdf
+source "$ASDF_DIR/asdf.sh"
+fpath=(${ASDF_DIR}/completions $fpath)
+autoload -Uz compinit && compinit
+

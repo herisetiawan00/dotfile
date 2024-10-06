@@ -6,6 +6,7 @@ plugins=(
   git
   asdf
   sudo
+  you-should-use
   zsh-autosuggestions
 )
 
