@@ -4,7 +4,6 @@ ZSH_THEME="robbyrussell"
 plugins=(
   z
   git
-  asdf
   sudo
   you-should-use
   zsh-autosuggestions
