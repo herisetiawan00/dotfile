@@ -1,1 +1,4 @@
-return { "dart-lang/dart-vim-plugin" }
+return {
+	"dart-lang/dart-vim-plugin",
+	ft = { "dart" }
+}

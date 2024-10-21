@@ -8,7 +8,6 @@ return {
 	},
 	opts = function()
 		local cmp = require("cmp")
-		local defaults = require("cmp.config.default")
 		local auto_select = true
 
 		return {

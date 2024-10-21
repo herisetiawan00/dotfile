@@ -10,11 +10,11 @@ return {
 	opts = {
 		options = {
 			diagnostics = "nvim_lsp",
-			always_show_bufferline = false,
+			always_show_bufferline = true,
 			offsets = {
 				{
 					filetype = "neo-tree",
-					text = "Neo-tree",
+					text = "Directory",
 					highlight = "Directory",
 					text_align = "left",
 				},
@@ -23,12 +23,5 @@ return {
 	},
 	config = function(_, opts)
 		require("bufferline").setup(opts)
-		vim.api.nvim_create_autocmd({ "BufAdd", "BufDelete" }, {
-			callback = function()
-				vim.schedule(function()
-					pcall(nvim_bufferline)
-				end)
-			end,
-		})
 	end,
 }
