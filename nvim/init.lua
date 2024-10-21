@@ -1,1 +1,1 @@
-require("configs.init")
+require("configs")
