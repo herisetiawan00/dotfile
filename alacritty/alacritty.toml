@@ -1,3 +1,7 @@
+general.import = [
+  "~/.config/alacritty/catppuccin-mocha.toml"
+]
+
 [font]
 size = 10.0
 
@@ -16,3 +20,6 @@ style = "Italic"
 [font.normal]
 family = "JetBrainsMono Nerd Font"
 style = "Regular"
+
+[env]
+term = "xterm-256color"
