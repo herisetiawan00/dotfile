@@ -4,6 +4,23 @@ local wk = require("which-key")
 map("n", "<C-e>", "<cmd>Neotree toggle<cr>", { desc = "Toggle Neotree" })
 map("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Lazy" })
 
+-- Buffer
+wk.add({ "<leader>b", group = "Buffer" })
+map("n", "<leader>bd", "<cmd>BDelete this<cr>", { desc = "Delete Current Buffer" })
+map("n", "<leader>bn", "<cmd>BDelete nameless<cr>", { desc = "Delete Nameless Buffer" })
+map("n", "<leader>bo", "<cmd>BDelete other<cr>", { desc = "Delete Other Buffers" })
+map("n", "<leader>ba", "<cmd>BDelete all<cr>", { desc = "Delete All Buffers" })
+map("n", "<leader>bp", "<cmd>BufferLineTogglePin<cr>", { desc = "Toggle Buffer Pin" })
+map("n", "<S-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev Buffer" })
+map("n", "<S-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next Buffer" })
+
+-- Buffer Sort
+wk.add({ "<leader>bs", group = "Sort" })
+map("n", "<leader>bse", "<cmd>BufferLineSortByExtension<cr>", { desc = "Sort by Extension" })
+map("n", "<leader>bsd", "<cmd>BufferLineSortByDirectory<cr>", { desc = "Sort by Directory" })
+map("n", "<leader>bst", "<cmd>BufferLineSortByTabs<cr>", { desc = "Sort by Tabs" })
+
+
 -- File Finder
 wk.add({ "<leader>f", group = "File" })
 map("n", "<leader>ff", "<cmd>FzfLua files<cr>", { desc = "Find Files" })
