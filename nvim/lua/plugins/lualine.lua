@@ -57,9 +57,20 @@ return {
 					},
 				},
 				lualine_z = {
-					function()
-						return " " .. os.date("%R")
-					end,
+					{ "filetype" },
+					{
+						function()
+							local clients = vim.lsp.get_clients({ bufnr = 0 })
+							if #clients == 0 then
+								return ""
+							end
+							local names = {}
+							for _, client in pairs(clients) do
+								table.insert(names, client.name)
+							end
+							return 'LSP: ' .. table.concat(names, ', ')
+						end,
+					}
 				},
 			},
 			extensions = { "neo-tree", "lazy" }

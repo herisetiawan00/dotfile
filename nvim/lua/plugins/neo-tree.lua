@@ -18,7 +18,7 @@ return {
 			statusline = false,
 		},
 		window = {
-			width = 30,
+			width = 40,
 			position = "left",
 			mappings = {
 				["l"] = "open",

@@ -28,7 +28,22 @@ return {
 					Lua = {}
 				}
 			})
+
+
 			lspconfig.dartls.setup({})
+			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+			lspconfig.kotlin_language_server.setup {
+				capabilities = capabilities,
+				settings = {
+					kotlin = {
+						compiler = {
+							jvm = {
+								target = "17"
+							}
+						}
+					}
+				}
+			}
 		end,
 	},
 	{ "arkav/lualine-lsp-progress" }
