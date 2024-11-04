@@ -8,3 +8,6 @@ swiftpm
 jgit
 container
 .android
+create-next-app-nodejs
+tool_state
+nvim/lazy-lock.json

@@ -19,3 +19,5 @@ if [ -f /etc/arch-release ]; then
   source $DOTDIR/utils/arch.sh
 fi
 
+# Aliases
+source $DOTDIR/utils/aliases.sh

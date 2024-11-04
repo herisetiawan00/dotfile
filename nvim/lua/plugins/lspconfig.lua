@@ -31,6 +31,18 @@ return {
 
 
 			lspconfig.dartls.setup({})
+			lspconfig.ts_ls.setup({})
+			lspconfig.tailwindcss.setup({})
+			lspconfig.html.setup({})
+			lspconfig.bashls.setup({})
+			lspconfig.eslint.setup({
+				on_attach = function(client, bufnr)
+					vim.api.nvim_create_autocmd("BufWritePre", {
+						buffer = bufnr,
+						command = "EslintFixAll",
+					})
+				end,
+			})
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 			lspconfig.kotlin_language_server.setup {
 				capabilities = capabilities,
