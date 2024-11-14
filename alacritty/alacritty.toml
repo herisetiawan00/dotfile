@@ -2,6 +2,10 @@ general.import = [
   "~/.config/alacritty/catppuccin-mocha.toml"
 ]
 
+[window]
+title = "アラクリティー"
+dynamic_title = false
+
 [font]
 size = 10.0
 
