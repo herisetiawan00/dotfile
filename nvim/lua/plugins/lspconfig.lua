@@ -30,7 +30,7 @@ return {
 			})
 
 
-			lspconfig.dartls.setup({})
+			-- lspconfig.dartls.setup({})
 			lspconfig.ts_ls.setup({})
 			lspconfig.tailwindcss.setup({})
 			lspconfig.html.setup({})
