@@ -21,3 +21,6 @@ fi
 
 # Aliases
 source $DOTDIR/utils/aliases.sh
+
+# Path
+export PATH="$PATH:$DOTDIR/bin"

@@ -1,8 +1,28 @@
+---@diagnostic disable: undefined-field
+
 local map = vim.keymap.set
 local wk = require("which-key")
 
 map("n", "<C-e>", "<cmd>Neotree toggle<cr>", { desc = "Toggle Neotree" })
-map("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Lazy" })
+map("n", "<leader>L", "<cmd>Lazy<cr>", { desc = "Lazy" })
+map('n', 'Y', '"*y')
+map('n', 'P', '"*p')
+
+-- Lsp
+wk.add({ "<leader>l", group = "Lsp" });
+map("n", "<leader>li", "<cmd>LspInfo<cr>", { desc = "Show Info" });
+map(
+	"n",
+	"<Leader>ll",
+	function()
+		local config = vim.diagnostic.config();
+		vim.diagnostic.config({
+			virtual_text = not (config and config.virtual_text) or false,
+			virtual_lines = not (config and config.virtual_lines) or false,
+		})
+	end,
+	{ desc = "Toggle Diagnostic Line" }
+);
 
 -- Buffer
 wk.add({ "<leader>b", group = "Buffer" })
@@ -19,7 +39,6 @@ wk.add({ "<leader>bs", group = "Sort" })
 map("n", "<leader>bse", "<cmd>BufferLineSortByExtension<cr>", { desc = "Sort by Extension" })
 map("n", "<leader>bsd", "<cmd>BufferLineSortByDirectory<cr>", { desc = "Sort by Directory" })
 map("n", "<leader>bst", "<cmd>BufferLineSortByTabs<cr>", { desc = "Sort by Tabs" })
-
 
 -- File Finder
 wk.add({ "<leader>f", group = "File" })
@@ -43,7 +62,6 @@ map("n", "<leader>ghu", "<cmd>Gitsigns undo_stage_hunk<cr>", { desc = "Undo Stag
 map("n", "<leader>ghp", "<cmd>Gitsigns preview_hunk<cr>", { desc = "Preview Hunk" })
 map("n", "<leader>ghn", "&diff ? '<leader>ghn' : '<cmd>Gitsigns next_hunk<cr>'", { expr = true })
 map("n", "<leader>ghp", "&diff ? '<leader>ghp' : '<cmd>Gitsigns prev_hunk<cr>'", { expr = true })
-
 
 -- Git toggle
 wk.add({ "<leader>gt", group = "Toggle" })

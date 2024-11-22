@@ -31,6 +31,7 @@ return {
 
 
 			-- lspconfig.dartls.setup({})
+			lspconfig.rust_analyzer.setup({})
 			lspconfig.ts_ls.setup({})
 			lspconfig.tailwindcss.setup({})
 			lspconfig.html.setup({})
@@ -58,5 +59,13 @@ return {
 			}
 		end,
 	},
-	{ "arkav/lualine-lsp-progress" }
+	{ "arkav/lualine-lsp-progress" },
+	{ "vim-test/vim-test" },
+	{
+		"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+		config = function()
+			require("lsp_lines").setup()
+			vim.diagnostic.config({ virtual_lines = false })
+		end,
+	}
 }
