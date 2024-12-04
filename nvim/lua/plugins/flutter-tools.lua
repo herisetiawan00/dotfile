@@ -27,6 +27,28 @@ return {
 			wk.add({ "<leader>Fo", group = "Flutter Outline" })
 			map("n", "<leader>Fot", "<cmd>FlutterOutlineToggle<cr>", { desc = "Flutter Outline Toggle" })
 			map("n", "<leader>Fot", "<cmd>FlutterOutlineOpen<cr>", { desc = "Flutter Outline Open" })
+
+			map("n", "<C-T>", function()
+				local current_file = vim.fn.expand("%:t:r")
+				local target_file
+
+				if current_file:match("_test$") then
+					target_file = vim.fn.substitute(current_file, "_test$", "", "") .. ".dart"
+				else
+					target_file = current_file .. "_test.dart"
+				end
+
+				local result = vim.fn.system("fd " .. target_file .. " | head -n 1")
+
+				if result and result ~= "" then
+					vim.cmd("edit " .. vim.fn.trim(result))
+				else
+					print("File not found: " .. target_file)
+				end
+			end, {
+				noremap = true,
+				silent = true,
+			})
 		end
 
 		require("flutter-tools").setup({

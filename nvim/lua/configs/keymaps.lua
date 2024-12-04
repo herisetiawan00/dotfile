@@ -5,8 +5,8 @@ local wk = require("which-key")
 
 map("n", "<C-e>", "<cmd>Neotree toggle<cr>", { desc = "Toggle Neotree" })
 map("n", "<leader>L", "<cmd>Lazy<cr>", { desc = "Lazy" })
-map('n', 'Y', '"*y')
-map('n', 'P', '"*p')
+map('x', 'Y', '"*y')
+map('x', 'P', '"*p')
 
 -- Lsp
 wk.add({ "<leader>l", group = "Lsp" });
@@ -80,4 +80,7 @@ map("n", "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", { desc = "Diagnost
 map("n", "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", { desc = "Buffer Diagnostics" })
 map("n", "<leader>xL", "<cmd>Trouble loclist toggle<cr>", { desc = "Location List" })
 map("n", "<leader>xQ", "<cmd>Trouble qflist toggle<cr>", { desc = "Quickfix List" })
-map("n", "<leader>xc", "<cmd>FzfLua lsp_code_actions<cr>", { desc = "Code Actions" })
+-- map("n", "<leader>xc", "<cmd>FzfLua lsp_code_actions<cr>", { desc = "Code Actions" })
+
+-- Hard Time
+map("n", "<leader>h", "<cmd>Hardtime toggle<cr>", { desc = "Hardtime Toggle" })

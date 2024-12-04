@@ -33,11 +33,29 @@ return {
 			},
 		},
 		default_component_configs = {
+			diagnostics = {
+				symbols = {
+					error = "󰅚 ",
+					warn = "󰀪 ",
+					hint = "󰌶 ",
+					info = " ",
+				},
+				highlights = {
+					hint = "DiagnosticSignHint",
+					info = "DiagnosticSignInfo",
+					warn = "DiagnosticSignWarn",
+					error = "DiagnosticSignError",
+				},
+			},
 			indent = {
 				with_expanders = true,
 				expander_collapsed = "",
 				expander_expanded = "",
 				expander_highlight = "NeoTreeExpander",
+			},
+			modified = {
+				symbol = "[+]",
+				highlight = "NeoTreeModified",
 			},
 			git_status = {
 				symbols = {
