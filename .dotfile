@@ -23,4 +23,19 @@ fi
 source $DOTDIR/utils/aliases.sh
 
 # Path
-export PATH="$PATH:$DOTDIR/bin"
+export PATH="$PATH:$DOTDIR/bin/universal"
+
+get_os() {
+	case "$OSTYPE" in
+		linux-gnu*)
+			echo "linux"
+			;;
+		darwin*)
+			echo "darwin"
+			;;
+	esac
+}
+
+if [[ -e "$DOTDIR/bin/$(get_os)/$(uname -m)" ]]; then
+	export PATH="$PATH:$DOTDIR/bin/$(get_os)/$(uname -m)"
+fi
