@@ -6,7 +6,7 @@ import = [
 [window]
 title = "アラクリティー"
 dynamic_title = false
-startup_mode = "SimpleFullscreen"
+startup_mode = "Fullscreen"
 
 [font]
 size = 10.0

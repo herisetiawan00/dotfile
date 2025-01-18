@@ -1,4 +1,5 @@
 # Global Variable
+export TERM="tmux-256color"
 export DOTDIR="$HOME/.dotfile"
 export XDG_CONFIG_HOME="$DOTDIR"
 export ASDF_CONFIG_FILE="$XDG_CONFIG_HOME/asdf/asdfrc"
