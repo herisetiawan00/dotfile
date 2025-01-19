@@ -4,6 +4,7 @@ export XDG_CONFIG_HOME="$DOTDIR"
 export ASDF_CONFIG_FILE="$XDG_CONFIG_HOME/asdf/asdfrc"
 export ASDF_DIR="$XDG_CONFIG_HOME/asdf"
 export ASDF_DATA_DIR="$ASDF_DIR"
+export STARSHIP_CONFIG="$DOTDIR/starship/starship.toml"
 
 # Include zshrc
 source $DOTDIR/zshrc/.zshrc

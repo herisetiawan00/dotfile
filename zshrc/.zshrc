@@ -16,3 +16,4 @@ source $ZSH/oh-my-zsh.sh
 
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
+eval "$(starship init zsh)"
