@@ -4,10 +4,33 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 	},
 	config = function()
+		local capabilities = vim.lsp.protocol.make_client_capabilities()
+		capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+
 		local servers = {
 			kotlin_language_server = true,
 			ts_ls = true,
-			lua_ls = true,
+			lua_ls = {
+				settings = {
+					Lua = {
+						runtime = {
+							version = 'LuaJIT',
+						},
+						diagnostics = {
+							globals = {
+								'vim',
+								'require'
+							},
+						},
+						workspace = {
+							library = vim.api.nvim_get_runtime_file("", true),
+						},
+						telemetry = {
+							enable = false,
+						},
+					},
+				},
+			},
 			rust_analyzer = true,
 			bashls = true,
 			eslint = true,
@@ -16,7 +39,8 @@ return {
 		local mason = require 'mason-lspconfig'
 
 		mason.setup {
-			ensure_installed = vim.tbl_keys(servers)
+			ensure_installed = vim.tbl_keys(servers),
+			automatic_installation = true
 		}
 
 		local lspconfig = require 'lspconfig'

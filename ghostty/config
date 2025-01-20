@@ -1,0 +1,17 @@
+# colors
+theme = catppuccin-mocha
+
+# fonts
+font-family = JetBrainsMono Nerd Font
+font-size = 10 
+
+# cursor
+shell-integration-features = no-cursor
+cursor-style = block
+cursor-style-blink = false
+
+title = " "
+fullscreen = false
+shell-integration = zsh
+window-padding-x = 0
+window-padding-y = 0

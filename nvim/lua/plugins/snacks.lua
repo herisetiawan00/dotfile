@@ -19,6 +19,7 @@ return {
 		words = { enabled = true },
 		styles = {
 			notification = {
+				relative = "editor",
 				border = "rounded",
 				zindex = 100,
 				ft = "markdown",
