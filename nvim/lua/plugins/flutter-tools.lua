@@ -53,9 +53,35 @@ return {
 
 		require("flutter-tools").setup({
 			flutter_lookup_cmd = "asdf where flutter",
+			widget_guides = { enabled = true },
+			debugger = {
+				enabled = true,
+				run_via_dap = true,
+				exception_breakpoints = {},
+				register_configurations = function(paths)
+					local dap = require("dap")
+					dap.adapters.dart = {
+						type = "executable",
+						command = paths.flutter_bin,
+						args = { "debug-adapter" },
+					}
+					dap.configurations.dart = {}
+					require("dap.ext.vscode").load_launchjs()
+				end,
+			},
 			lsp = {
-				on_attach = on_attach
-			}
+				settings = {
+					showtodos = true,
+					completefunctioncalls = true,
+					analysisexcludedfolders = {
+						vim.fn.expand("$Home/.pub-cache"),
+					},
+					renamefileswithclasses = "prompt",
+					updateimportsonrename = true,
+					enablesnippets = false,
+				},
+			},
+			on_attach = on_attach,
 		})
 	end,
 }
