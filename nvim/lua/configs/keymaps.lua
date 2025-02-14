@@ -3,75 +3,57 @@ local wk = require("which-key")
 
 map("n", "<C-e>", "<cmd>Neotree toggle<cr>", { desc = "Toggle Neotree" })
 map("n", "<leader>L", "<cmd>Lazy<cr>", { desc = "Lazy" })
+
+map("n", "<C-t>", "<cmd>lua Term_Toggle()<cr>", { desc = "Toggle Terminal" })
+
 map('x', 'Y', '"*y')
 map('x', 'P', '"*p')
 
-map("n", "<leader>H", "<cmd>Hardtime toggle<cr>", { desc = "Hardtime Toggle" })
-
-wk.add({ "<leader>l", group = "Lsp" });
-map("n", "<leader>li", "<cmd>LspInfo<cr>", { desc = "Show Info" });
-map(
-	"n",
-	"<Leader>ll",
-	function()
-		local config = vim.diagnostic.config();
-		vim.diagnostic.config({
-			virtual_text = not (config and config.virtual_text) or false,
-			virtual_lines = not (config and config.virtual_lines) or false,
-		})
-	end,
-	{ desc = "Toggle Diagnostic Line" }
-);
-
-map("n", "<C-l>", "<cmd>vertical resize +5<cr>", { desc = "Resize Window Bigger Vertically" })
-map("n", "<C-h>", "<cmd>vertical resize -5<cr>", { desc = "Resize Window Smaller Vertically" })
-map("n", "<C-k>", "<cmd>horizontal resize +5<cr>", { desc = "Resize Window Bigger Horizontally" })
-map("n", "<C-j>", "<cmd>horizontal resize -5<cr>", { desc = "Resize Window Bigger Horizontally" })
-
-wk.add({ "<leader>b", group = "Buffer" })
-map("n", "<leader>bd", "<cmd>BDelete this<cr>", { desc = "Delete Current Buffer" })
-map("n", "<leader>bn", "<cmd>BDelete nameless<cr>", { desc = "Delete Nameless Buffer" })
-map("n", "<leader>bo", "<cmd>BDelete other<cr>", { desc = "Delete Other Buffers" })
-map("n", "<leader>ba", "<cmd>BDelete all<cr>", { desc = "Delete All Buffers" })
-
 wk.add({ "<leader>f", group = "Finder" })
-map("n", "<leader>fb", Snacks.picker.buffers, { desc = "Buffers" })
-map("n", "<leader>fg", Snacks.picker.grep, { desc = "Grep" })
-map("n", "<leader>fG", Snacks.picker.git_files, { desc = "Git Files" })
-map("n", "<leader>ff", Snacks.picker.files, { desc = "Files" })
-map("n", "<leader>fr", Snacks.picker.recent, { desc = "Recent" })
-map("n", "<leader>fb", Snacks.picker.buffers, { desc = "Buffers" })
+map("n", "<leader>fb", "<cmd>FzfLua buffers<cr>", { desc = "Buffers" })
+map("n", "<leader>fg", "<cmd>FzfLua grep<cr>", { desc = "Grep" })
+map("n", "<leader>fG", "<cmd>FzfLua git_files<cr>", { desc = "Git Files" })
+map("n", "<leader>ff", "<cmd>FzfLua files<cr>", { desc = "Files" })
+map("n", "<leader>fr", "<cmd>FzfLua recent<cr>", { desc = "Recent" })
+map("n", "<leader>fb", "<cmd>FzfLua buffers<cr>", { desc = "Buffers" })
+map("n", "<leader>fa", "<cmd>FzfLua autocmds<cr>", { desc = "Autocmds" })
+map("n", "<leader>fc", "<cmd>FzfLua command_history<cr>", { desc = "Command History" })
+map("n", "<leader>fC", "<cmd>FzfLua commands<cr>", { desc = "Commands" })
+map("n", "<leader>fh", "<cmd>FzfLua help<cr>", { desc = "Help" })
+map("n", "<leader>fH", "<cmd>FzfLua highlights<cr>", { desc = "Highlights" })
+map("n", "<leader>fk", "<cmd>FzfLua keymaps<cr>", { desc = "Keymaps" })
+map("n", "<leader>fM", "<cmd>FzfLua manpages<cr>", { desc = "Manuals" })
+map("n", "<leader>fm", "<cmd>FzfLua marks<cr>", { desc = "Marks" })
+
+wk.add({ "<leader>l", group = "Lsp" })
+map("n", "<leader>la", vim.lsp.buf.code_action, { desc = "Code Action" })
+map("n", "<leader>lf", vim.lsp.buf.definition, { desc = "Definition" })
+map("n", "<leader>lc", vim.lsp.buf.declaration, { desc = "Declaration" })
+map("n", "<leader>lr", vim.lsp.buf.rename, { desc = "Rename" })
+map("n", "<leader>lf", vim.lsp.buf.format, { desc = "Format" })
 
 wk.add({ "<leader>g", group = "Git" })
-map("n", "<leader>gg", function() Snacks.lazygit() end, { desc = "LazyGit" })
-map("n", "<leader>gl", Snacks.lazygit.log, { desc = "LazyGit" })
-map("n", "<leader>gf", Snacks.lazygit.log_file, { desc = "LazyGit" })
-map("n", "<leader>gb", Snacks.git.blame_line, { desc = "LazyGit" })
-map("n", "<leader>gB", function() Snacks.gitbrowse() end, { desc = "Browse" })
+map("n", "<leader>gg", "<cmd>lua Term_LazyGit_Toggle()<cr>", { desc = "LazyGit" })
 
-wk.add({ "<leader>s", group = "Search" })
-map("n", "<leader>sa", Snacks.picker.autocmds, { desc = "Autocmds" })
-map("n", "<leader>sc", Snacks.picker.command_history, { desc = "Command History" })
-map("n", "<leader>sC", Snacks.picker.commands, { desc = "Commands" })
-map("n", "<leader>sh", Snacks.picker.help, { desc = "Help" })
-map("n", "<leader>sH", Snacks.picker.highlights, { desc = "Highlights" })
-map("n", "<leader>sk", Snacks.picker.keymaps, { desc = "Keymaps" })
-map("n", "<leader>sM", Snacks.picker.man, { desc = "Manuals" })
-map("n", "<leader>sm", Snacks.picker.marks, { desc = "Marks" })
+wk.add({ "<leader>gb", group = "Blame" })
+map("n", "<leader>gbt", "<cmd>GitBlameToggle<cr>", { desc = "Toggle Virtual Line" })
 
-map("n", "<C-~>", function() Snacks.terminal() end, { desc = "Terminal" })
+wk.add({ "<leader>gbo", group = "Open" })
+map("n", "<leader>gboc", "<cmd>GitBlameOpenCommitURL<cr>", { desc = "Commit URL" })
+map("n", "<leader>gbof", "<cmd>GitBlameOpenFileURL<cr>", { desc = "File URL" })
 
-wk.add({ "<leader>n", group = "Notifier" })
-map("n", "<leader>nh", Snacks.notifier.show_history, { desc = "History" })
-map("n", "<leader>nx", Snacks.notifier.hide, { desc = "Hide" })
+wk.add({ "<leader>gbc", group = "Copy" })
+map("n", "<leader>gbcs", "<cmd>GitBlameCopySHA<cr>", { desc = "SHA" })
+map("n", "<leader>gbcc", "<cmd>GitBlameCopyCommitURL<cr>", { desc = "Commit URL" })
+map("n", "<leader>gbcf", "<cmd>GitBlameCopyFileURL<cr>", { desc = "File URL" })
 
-wk.add({ "<leader>d", group = "Debugger" })
 local dapui = require("dapui")
+wk.add({ "<leader>d", group = "Debugger" })
 map("n", "<leader>dc", "<cmd>DapContinue<cr>", { desc = "Continue" })
 map("n", "<leader>dd", "<cmd>DapDisconnect<cr>", { desc = "Disconnect" })
 map("n", "<leader>de", dapui.eval, { desc = "Eval" })
 map("n", "<leader>db", "<cmd>DapToggleBreakpoint<cr>", { desc = "Toggle Breakpoint" })
-map("n", "<leader>dbc", "<cmd>DapClearBreakpoints<cr>", { desc = "Clear Breakpoints" })
+map("n", "<leader>dx", "<cmd>DapClearBreakpoints<cr>", { desc = "Clear Breakpoints" })
 map("n", "<leader>dt", "<cmd>DapTerminate<cr>", { desc = "Terminate" })
 wk.add({ "<leader>ds", group = "Step" })
 map("n", "<leader>dsi", "<cmd>DapStepInto<cr>", { desc = "Step Into" })

@@ -13,7 +13,7 @@ return {
 			require("dapui").setup {
 				mappings = {
 					edit = "e",
-					expand = { "<CR>", "L" },
+					expand = "l",
 					open = "o",
 					remove = "d",
 					repl = "r",
@@ -81,4 +81,8 @@ return {
 			end
 		end,
 	},
+	{
+		"Mgenuit/nvim-dap-kotlin",
+		config = true,
+	}
 }
