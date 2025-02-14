@@ -9,10 +9,10 @@ return {
 	config = function()
 		local on_attach = function(_, bufnr)
 			local map = vim.keymap.set
-			-- local wk = require("which-key")
+			local wk = require("which-key")
 			map("n", "<leader>xc", vim.lsp.buf.code_action, { buffer = bufnr, desc = "Code Action" })
 
-			-- wk.add({ "<leader>F", group = "Flutter" })
+			wk.add({ "<leader>F", group = "Flutter" })
 			map("n", "<leader>Fs", "<cmd>FlutterRun<cr>", { desc = "Flutter Start" })
 			map("n", "<leader>Fd", "<cmd>FlutterDevices<cr>", { desc = "Flutter Devices" })
 			map("n", "<leader>Fe", "<cmd>FlutterEmulators<cr>", { desc = "Flutter Emulators" })
@@ -24,8 +24,7 @@ return {
 			map("n", "<leader>FV", "<cmd>FlutterDevToolsActivate<cr>", { desc = "Flutter Dev Tools Activate" })
 			map("n", "<leader>Fe", "<cmd>FlutterRename<cr>", { desc = "Flutter Rename" })
 
-
-			-- wk.add({ "<leader>Fo", group = "Flutter Outline" })
+			wk.add({ "<leader>Fo", group = "Flutter Outline" })
 			map("n", "<leader>Fot", "<cmd>FlutterOutlineToggle<cr>", { desc = "Flutter Outline Toggle" })
 			map("n", "<leader>Fot", "<cmd>FlutterOutlineOpen<cr>", { desc = "Flutter Outline Open" })
 
