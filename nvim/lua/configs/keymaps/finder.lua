@@ -1,0 +1,18 @@
+local map = vim.keymap.set
+local wk = require("which-key")
+
+wk.add({ "<leader>f", group = "Finder" })
+map("n", "<leader>fb", "<cmd>FzfLua buffers<cr>", { desc = "Buffers" })
+map("n", "<leader>fg", "<cmd>FzfLua live_grep<cr>", { desc = "Grep" })
+map("n", "<leader>fG", "<cmd>FzfLua git_files<cr>", { desc = "Git Files" })
+map("n", "<leader>ff", "<cmd>FzfLua files<cr>", { desc = "Files" })
+map("n", "<leader>fr", "<cmd>FzfLua recent<cr>", { desc = "Recent" })
+map("n", "<leader>fb", "<cmd>FzfLua buffers<cr>", { desc = "Buffers" })
+map("n", "<leader>fa", "<cmd>FzfLua autocmds<cr>", { desc = "Autocmds" })
+map("n", "<leader>fc", "<cmd>FzfLua command_history<cr>", { desc = "Command History" })
+map("n", "<leader>fC", "<cmd>FzfLua commands<cr>", { desc = "Commands" })
+map("n", "<leader>fh", "<cmd>FzfLua help<cr>", { desc = "Help" })
+map("n", "<leader>fH", "<cmd>FzfLua highlights<cr>", { desc = "Highlights" })
+map("n", "<leader>fk", "<cmd>FzfLua keymaps<cr>", { desc = "Keymaps" })
+map("n", "<leader>fM", "<cmd>FzfLua manpages<cr>", { desc = "Manuals" })
+map("n", "<leader>fm", "<cmd>FzfLua marks<cr>", { desc = "Marks" })

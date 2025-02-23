@@ -1,0 +1,5 @@
+require("configs.keymaps.common")
+require("configs.keymaps.finder")
+require("configs.keymaps.lsp")
+require("configs.keymaps.git")
+require("configs.keymaps.dap")

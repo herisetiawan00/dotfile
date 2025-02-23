@@ -1,8 +1,7 @@
 return {
 	"akinsho/flutter-tools.nvim",
-	ft = 'dart',
-	lazy = false,
 	dependencies = {
+		"mfussenegger/nvim-dap",
 		"nvim-lua/plenary.nvim",
 		"stevearc/dressing.nvim", -- optional for vim.ui.select
 	},
@@ -28,7 +27,7 @@ return {
 			map("n", "<leader>Fot", "<cmd>FlutterOutlineToggle<cr>", { desc = "Flutter Outline Toggle" })
 			map("n", "<leader>Fot", "<cmd>FlutterOutlineOpen<cr>", { desc = "Flutter Outline Open" })
 
-			map("n", "<C-T>", function()
+			function Jump_to_Test()
 				local current_file = vim.fn.expand("%:t:r")
 				local target_file
 
@@ -45,11 +44,9 @@ return {
 				else
 					print("File not found: " .. target_file)
 				end
-			end, {
-				desc = "Jump To Test",
-				noremap = true,
-				silent = true,
-			})
+			end
+
+			map("n", "<C-T>", "<cmd>lua Jump_to_Test()<cr>", { desc = "Jump to Test" })
 		end
 
 		require("flutter-tools").setup({
@@ -66,8 +63,8 @@ return {
 						command = paths.flutter_bin,
 						args = { "debug-adapter" },
 					}
-					dap.configurations.dart = {}
-					require("dap.ext.vscode").load_launchjs()
+					-- dap.configurations.dart = {}
+					-- require("dap.ext.vscode").load_launchjs()
 				end,
 			},
 			lsp = {

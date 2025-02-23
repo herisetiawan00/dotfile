@@ -79,10 +79,23 @@ return {
 			dap.listeners.before.event_exited.dapui_config = function()
 				ui.close()
 			end
+
+			dap.adapters.dart = {
+				type = "executable",
+				command = "flutter",
+				args = { "debug_adapter" }
+			}
+
+			dap.configurations.dart = {
+				{
+					type = "dart",
+					request = "launch",
+					name = "Launch Flutter Program",
+					program = "${file}",
+					cwd = "${workspaceFolder}",
+					-- toolArgs = { "-d", "linux" }
+				}
+			}
 		end,
 	},
-	{
-		"Mgenuit/nvim-dap-kotlin",
-		config = true,
-	}
 }
