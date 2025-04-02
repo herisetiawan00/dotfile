@@ -1,4 +1,5 @@
 export ZSH="$DOTDIR/zshrc/.oh-my-zsh"
+export ZSH_CUSTOM="$DOTDIR/zshrc/.oh-my-zsh-custom"
 
 ZSH_TMUX_AUTOSTART=true
 ZSH_THEME="robbyrussell"
@@ -6,7 +7,7 @@ ZSH_THEME="robbyrussell"
 plugins=(
   z
   git
-	tmux
+  tmux
   sudo
   you-should-use
   zsh-autosuggestions
