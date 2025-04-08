@@ -8,6 +8,7 @@ title = "アラクリティー"
 dynamic_title = false
 startup_mode = "Maximized"
 decorations = "None"
+option_as_alt = "OnlyLeft"
 
 [font]
 size = 10.0
