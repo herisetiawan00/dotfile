@@ -14,7 +14,7 @@ option_as_alt = "OnlyLeft"
 size = 10.0
 
 [font.normal]
-family = "JetBrainsMono Nerd Font"
+family = "BerkeleyMono Nerd Font"
 
 [env]
 term = "xterm-256color"

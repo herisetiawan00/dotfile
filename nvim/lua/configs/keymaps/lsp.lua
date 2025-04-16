@@ -1,7 +1,5 @@
 local map = vim.keymap.set
-local wk = require("which-key")
 
-wk.add({ "<leader>l", group = "Lsp" })
 map("n", "<leader>la", vim.lsp.buf.code_action, { desc = "Code Action" })
 map("n", "<leader>lf", vim.lsp.buf.definition, { desc = "Definition" })
 map("n", "<leader>lc", vim.lsp.buf.declaration, { desc = "Declaration" })

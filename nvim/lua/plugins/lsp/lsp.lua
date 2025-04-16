@@ -5,7 +5,6 @@ return {
 	},
 	config = function()
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
-		capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 		local servers = {
 			kotlin_language_server = true,
@@ -35,7 +34,6 @@ return {
 			bashls = true,
 			eslint = true,
 			dartls = true,
-			jsonls = true,
 			html = true,
 			tailwindcss = true,
 		}
@@ -54,9 +52,7 @@ return {
 				config = {}
 			end
 
-			config = vim.tbl_deep_extend('force', {}, {
-				capabilities = capabilities,
-			}, config)
+			config = vim.tbl_deep_extend('force', {}, {}, config)
 
 			lspconfig[name].setup(config)
 		end

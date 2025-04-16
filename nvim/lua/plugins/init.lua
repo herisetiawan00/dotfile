@@ -1,7 +1,5 @@
 return {
-	{ import = "plugins.ui" },
-	{ import = "plugins.editor" },
 	{ import = "plugins.lsp" },
-	{ import = "plugins.git" },
 	{ import = "plugins.misc" },
+	{ import = "plugins.ui" },
 }
